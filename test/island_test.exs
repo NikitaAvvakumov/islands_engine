@@ -28,7 +28,7 @@ defmodule IslandsEngine.IslandTest do
     end
   end
 
-  describe "overlaps/2" do
+  describe "overlaps?/2" do
     test "when non-overlapping" do
       {:ok, first_upper_left} = Coordinate.new(1, 1)
       {:ok, first_island} = Island.new(:square, first_upper_left)
@@ -67,7 +67,7 @@ defmodule IslandsEngine.IslandTest do
       {:ok, coordinate} = Coordinate.new(2, 2)
       {:ok, island} = Island.new(:square, coordinate)
 
-      assert {:ok, updated_island} = Island.guess(island, coordinate)
+      assert {:hit, updated_island} = Island.guess(island, coordinate)
       assert MapSet.equal?(updated_island.hit_coordinates, MapSet.new([coordinate]))
     end
 

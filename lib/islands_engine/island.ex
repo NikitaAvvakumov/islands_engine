@@ -22,7 +22,7 @@ defmodule IslandsEngine.Island do
   def guess(%Island{} = island, %Coordinate{} = coordinate) do
     case MapSet.member?(island.coordinates, coordinate) do
       true ->
-        {:ok, update_in(island.hit_coordinates, &MapSet.put(&1, coordinate))}
+        {:hit, update_in(island.hit_coordinates, &MapSet.put(&1, coordinate))}
       false -> :miss
     end
   end
