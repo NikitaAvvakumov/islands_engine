@@ -31,7 +31,7 @@ defmodule IslandsEngine.Island do
     MapSet.equal?(island.coordinates, island.hit_coordinates)
   end
 
-  def types(), do: ~w(:atoll, :dot, :l_shape, :s_shape, :square)a
+  def types(), do: ~w(atoll dot l_shape s_shape square)a
 
   defp offsets(:atoll), do: {:ok, [{0, 0}, {0, 1}, {1, 1}, {2, 0}, {2, 1}]}
   defp offsets(:dot), do: {:ok, [{0, 0}]}
